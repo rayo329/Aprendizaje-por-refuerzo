@@ -67,7 +67,7 @@ suma) #Comprueba que puede moverse a la izquierda, se mueve y obtiene el valor d
 
 problemaEstados = probee.ProblemaEspacioEstados([desplazamientoAbajo, desplazamientoDerecha, desplazamientoArriba,
 desplazamientoIzquierda], posInicial, [posFinal])
-print("Buscando solución optima...")
+
 solucionOptima = búsqee.BúsquedaÓptima()
 print("\n")
 print(solucionOptima.buscar(problemaEstados))
