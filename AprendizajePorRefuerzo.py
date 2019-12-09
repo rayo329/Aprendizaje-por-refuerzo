@@ -1,5 +1,5 @@
-import problema_espacio_estados as probee
-import búsqueda_espacio_estados as búsqee
+import problema_espacio_estados as probe
+import búsqueda_espacio_estados as buse
 import copy
 
 class Mapa:
@@ -34,7 +34,7 @@ def puedeAbajo(estado):#Devuelve true si al moverse hacia abajo no se sale del m
 def mueveAbajo(estado): #nuevo estado
     return estado[0]+1, estado[1]
 
-desplazamientoAbajo = probee.Acción("Moverse hacia abajo", puedeAbajo, mueveAbajo,
+desplazamientoAbajo = probe.Acción("Moverse hacia abajo", puedeAbajo, mueveAbajo,
 suma) #Comprueba que puede moverse hacia abajo, se mueve y obtiene el valor de la casilla
 #-----------------------------------------------------------
 def puedeDerecha(estado):#Devuelve true si al moverse a la derecha no se sale del mapa y a la derecha no hay una casilla de agua
@@ -43,7 +43,7 @@ def puedeDerecha(estado):#Devuelve true si al moverse a la derecha no se sale de
 def mueveDerecha(estado): #nuevo estado
     return estado[0], estado[1] + 1
 
-desplazamientoDerecha = probee.Acción("Moverse hacia la derecha", puedeDerecha, mueveDerecha,
+desplazamientoDerecha = probe.Acción("Moverse hacia la derecha", puedeDerecha, mueveDerecha,
 suma) #Comprueba que puede moverse a la derecha, se mueve y obtiene el valor de la casilla
 #-----------------------------------------------------------
 def puedeArriba(estado):#Devuelve true si al moverse hacia arriba no se sale del mapa y arriba no hay una casilla de agua.
@@ -52,7 +52,7 @@ def puedeArriba(estado):#Devuelve true si al moverse hacia arriba no se sale del
 def mueveArriba(estado): #nuevo estado
     return estado[0]-1, estado[1] # Se pone "-" por la misma razón
 
-desplazamientoArriba = probee.Acción("Moverse hacia arriba", puedeArriba, mueveArriba,
+desplazamientoArriba = probe.Acción("Moverse hacia arriba", puedeArriba, mueveArriba,
 suma) #Comprueba que puede moverse a la izquierda, se mueve y obtiene el valor de la casilla
 #-----------------------------------------------------------
 def puedeIzquierda(estado):#Devuelve true si al moverse a la izquierda no se sale del mapa y a la izquierda no hay una casilla de agua.
@@ -61,13 +61,13 @@ def puedeIzquierda(estado):#Devuelve true si al moverse a la izquierda no se sal
 def mueveIzquierda(estado): #nuevo estado
     return estado[0], estado[1] - 1 # Se pone "-" por la misma razón
 
-desplazamientoIzquierda = probee.Acción("Moverse hacia la izquierda", puedeIzquierda, mueveIzquierda,
+desplazamientoIzquierda = probe.Acción("Moverse hacia la izquierda", puedeIzquierda, mueveIzquierda,
 suma) #Comprueba que puede moverse a la izquierda, se mueve y obtiene el valor de la casilla
 
 
-problemaEstados = probee.ProblemaEspacioEstados([desplazamientoAbajo, desplazamientoDerecha, desplazamientoArriba,
+problemaEstados = probe.ProblemaEspacioEstados([desplazamientoAbajo, desplazamientoDerecha, desplazamientoArriba,
 desplazamientoIzquierda], posInicial, [posFinal])
 
-solucionOptima = búsqee.BúsquedaÓptima()
+solucionOptima = buse.BúsquedaÓptima()
 print("\n")
 print(solucionOptima.buscar(problemaEstados))
